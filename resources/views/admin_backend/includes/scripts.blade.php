@@ -1,5 +1,5 @@
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="{{ asset('backend/adminbackend') }}/lib/jquery/jquery.js"></script>
     <script src="{{ asset('backend/adminbackend') }}/lib/popper.js/popper.js"></script>
     <script src="{{ asset('backend/adminbackend') }}/lib/bootstrap/bootstrap.js"></script>
@@ -46,11 +46,17 @@
     <script src="{{ asset('backend/adminbackend') }}/lib/Flot/jquery.flot.resize.js"></script>
     <script src="{{ asset('backend/adminbackend') }}/lib/flot-spline/jquery.flot.spline.js"></script>
 
+
+
     <script src="{{ asset('backend/adminbackend') }}/js/starlight.js"></script>
     <script src="{{ asset('backend/adminbackend') }}/js/ResizeSensor.js"></script>
     <script src="{{ asset('backend/adminbackend') }}/js/dashboard.js"></script>
+
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+
   <script>
         @if(Session::has('messege'))
           var type="{{Session::get('alert-type','info')}}"
@@ -70,7 +76,7 @@
           }
         @endif
      </script>
-	      <script>
+	<script>
             $(document).on("click", "#delete", function(e){
                 e.preventDefault();
                 var link = $(this).attr("href");
@@ -91,6 +97,22 @@
                });
        </script>
 
-       <script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+
+       {{-- <script>
            initSample();
-       </script>
+       </script> --}}

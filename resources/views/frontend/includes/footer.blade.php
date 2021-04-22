@@ -1,25 +1,26 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-
+@php
+$setting = DB::table('settings')->first();
+@endphp
             <div class="col-lg-3 footer_col">
                 <div class="footer_column footer_contact">
                     <div class="logo_container">
-                        <div class="logo"><a href="#">OneTech</a></div>
+                        <div class="logo"><a href="#">{{ $setting->company_name }}</a></div>
                     </div>
                     <div class="footer_title">Got Question? Call Us 24/7</div>
-                    <div class="footer_phone">+38 068 005 3570</div>
+                    <div class="footer_phone">{{ $setting->phone_two }}</div>
                     <div class="footer_contact_text">
-                        <p>17 Princess Road, London</p>
-                        <p>Grester London NW18JR, UK</p>
+                        <p>{{ $setting->company_address }}</p>
                     </div>
                     <div class="footer_social">
                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google"></i></a></li>
-                            <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            <li><a href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ $setting->twitter }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ $setting->youtube }}"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://www.google.com"><i class="fab fa-google"></i></a></li>
+                            <li><a href="{{ $setting->instagram }}"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>

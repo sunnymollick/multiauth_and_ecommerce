@@ -1,5 +1,5 @@
 @php
-    $admin = DB::table('admins')->where('id',1)->first();
+    $admin = DB::table('admins')->where('id',Auth::user()->id)->first();
 @endphp
 <div class="sl-header">
     <div class="sl-header-left">

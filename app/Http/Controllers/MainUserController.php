@@ -15,17 +15,28 @@ class MainUserController extends Controller{
             'messege'=>'Successfully Logout',
             'alert-type'=>'success'
             );
-        return redirect()->route('login')->with($notification);
+        return redirect()->to('/')->with($notification);
     }
+
+    // public function userProfile(){
+    //     $user = User::find(Auth::user()->id);
+    //     return view('user_backend.pages.view_profile',['user'=>$user]);
+    // }
+
+
+    // public function editUserProfile(){
+    //     $user = User::find(Auth::user()->id);
+    //     return view('user_backend.pages.edit_profile',['user'=>$user]);
+    // }
 
     public function userProfile(){
         $user = User::find(Auth::user()->id);
-        return view('user_backend.pages.view_profile',['user'=>$user]);
+        return view('frontend.pages.user.user_profile',['user'=>$user]);
     }
 
     public function editUserProfile(){
         $user = User::find(Auth::user()->id);
-        return view('user_backend.pages.edit_profile',['user'=>$user]);
+        return view('frontend.pages.user.edit_profile',['user'=>$user]);
     }
 
     public function userProfileUpdate(Request $request){
@@ -74,8 +85,12 @@ class MainUserController extends Controller{
         }
     }
 
+    // public function userPasswordChange(){
+    //     return view('user_backend.pages.change_password');
+    // }
+
     public function userPasswordChange(){
-        return view('user_backend.pages.change_password');
+        return view('frontend.pages.user.change_password');
     }
 
     public function updateUserPassword(Request $request){

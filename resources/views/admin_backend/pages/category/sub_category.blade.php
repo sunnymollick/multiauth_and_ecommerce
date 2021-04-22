@@ -29,8 +29,8 @@
                     <td>{{ $subCat->category_name }}</td>
                     <td>{{ $subCat->subcategory_name }}</td>
                     <td>
-                        <a href="{{ route('edit.sub.category',$subCat->id) }}" class="btn btn-sm btn-success">Edit</a>
-                        <a href="{{ route('delete.sub.category',$subCat->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                        <a href="{{ route('edit.sub.category',$subCat->id) }}" class="btn btn-sm btn-primary" title="Edit Sub Category"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a href="{{ route('delete.sub.category',$subCat->id) }}" class="btn btn-sm btn-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                     </td>
                 </tr>
               @endforeach
@@ -68,7 +68,7 @@
 
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Sub Category Name</label>
-                  <input type="text" class="form-control" name="subcategory_name" placeholder="Category" id="subcategory_name" value="{{ old('subcategory_name') }}" required >
+                  <input type="text" class="form-control" name="subcategory_name" placeholder="Enter Sub-Category" id="subcategory_name" value="{{ old('subcategory_name') }}" required >
                   @error('subcategory_name')
                       <span class="text-danger">{{ $message }}</span>
                   @enderror

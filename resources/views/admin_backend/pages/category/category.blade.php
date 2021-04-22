@@ -27,8 +27,8 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>
-                        <a href="{{ route('edit.category',$category->id) }}" class="btn btn-sm btn-success">Edit</a>
-                        <a href="{{ route('delete.category',$category->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                        <a href="{{ route('edit.category',$category->id) }}" class="btn btn-sm btn-primary" title="Edit Category"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a href="{{ route('delete.category',$category->id) }}" class="btn btn-sm btn-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                     </td>
                 </tr>
               @endforeach
@@ -83,5 +83,11 @@
       </div>
     </div><!-- modal-dialog -->
   </div><!-- modal -->
+
+@endsection
+
+@section('scripts')
+
+
 
 @endsection

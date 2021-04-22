@@ -34,11 +34,17 @@
 <link href="{{ asset('backend/adminbackend') }}/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
 <link href="{{ asset('backend/adminbackend') }}/lib/rickshaw/rickshaw.min.css" rel="stylesheet">
 
-<!-- Starlight CSS -->
-<link rel="stylesheet" href="{{ asset('backend/adminbackend') }}/css/starlight.css">
+
+<link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
 <link href="{{ asset('backend/adminbackend') }}/lib/highlightjs/github.css" rel="stylesheet">
 <link href="{{ asset('backend/adminbackend') }}/lib/datatables/jquery.dataTables.css" rel="stylesheet">
 <link href="{{ asset('backend/adminbackend') }}/lib/select2/css/select2.min.css" rel="stylesheet">
 
+<!-- Starlight CSS -->
+<link rel="stylesheet" href="{{ asset('backend/adminbackend') }}/css/starlight.css">
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+

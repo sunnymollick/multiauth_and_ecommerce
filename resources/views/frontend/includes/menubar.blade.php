@@ -1,3 +1,10 @@
+@php
+    $categories = DB::table('categories')->get();
+@endphp
+
+
+
+
 <nav class="main_nav">
     <div class="container">
         <div class="row">
@@ -14,31 +21,23 @@
                         </div>
 
                         <ul class="cat_menu">
-                            <li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
-                            <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
+                            @foreach ($categories as $category)
                             <li class="hassubs">
-                                <a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
+                                <a href="{{ route('category.all.product',$category->id) }}">{{ $category->category_name }}<i class="fas fa-chevron-right"></i></a>
                                 <ul>
-                                    <li class="hassubs">
-                                        <a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
-                                        <ul>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                        </ul>
+                                    @php
+                                        $subcategories = DB::table('sub_categories')->where('category_id',$category->id)->get();
+                                    @endphp
+
+                                    @foreach ($subcategories as $row)
+                                    <li>
+                                        <a href="{{ route('subcategory.product',$row->id) }}">{{ $row->subcategory_name }}<i class="fas fa-chevron-right"></i></a>
                                     </li>
-                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
+                            @endforeach
+
                         </ul>
                     </div>
 
@@ -46,7 +45,7 @@
 
                     <div class="main_nav_menu ml-auto">
                         <ul class="standard_dropdown main_nav_dropdown">
-                            <li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
+                            <li><a href="{{ url('/') }}">Home<i class="fas fa-chevron-down"></i></a></li>
                             <li class="hassubs">
                                 <a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
                                 <ul>
@@ -91,8 +90,8 @@
                                     <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                            <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+                            <li><a href="{{ route('blog.post') }}">Blog<i class="fas fa-chevron-down"></i></a></li>
+                            <li><a href="{{ route('contact.page') }}">Contact<i class="fas fa-chevron-down"></i></a></li>
                         </ul>
                     </div>
 
@@ -148,7 +147,7 @@
                             </ul>
                         </li>
                         <li class="page_menu_item">
-                            <a href="#">Home<i class="fa fa-angle-down"></i></a>
+                            <a href="{{ url('/') }}">Home<i class="fa fa-angle-down"></i></a>
                         </li>
                         <li class="page_menu_item has-children">
                             <a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
@@ -186,7 +185,7 @@
                                 <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                             </ul>
                         </li>
-                        <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
+                        <li class="page_menu_item"><a href="{{ route('blog.post') }}">blog<i class="fa fa-angle-down"></i></a></li>
                         <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
                     </ul>
 
@@ -202,21 +201,4 @@
 
 </header>
 
-<!-- Banner -->
 
-<div class="banner">
-<div class="banner_background" style="background-image:url({{ asset('frontend/images/banner_background.jpg')}})"></div>
-<div class="container fill_height">
-    <div class="row fill_height">
-        <div class="banner_product_image"><img src="{{ asset('frontend/images/banner_product.png')}}" alt=""></div>
-        <div class="col-lg-5 offset-lg-4 fill_height">
-            <div class="banner_content">
-                <h1 class="banner_text">new era of smartphones</h1>
-                <div class="banner_price"><span>$530</span>$460</div>
-                <div class="banner_product_name">Apple Iphone 6s</div>
-                <div class="button banner_button"><a href="#">Shop Now</a></div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>

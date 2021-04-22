@@ -31,14 +31,16 @@
     <title>Login</title>
 
     <!-- vendor css -->
-    <link href="{{ asset('backend/adminbackend') }}/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="{{ asset('backend/adminbackend') }}/lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/bootstrap4/bootstrap.min.css') }}">
+    <link href="{{ asset('backend/adminbackend/lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('backend/adminbackend/lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
+
 
 
     <!-- Starlight CSS -->
-    <link rel="stylesheet" href="{{ asset('backend/adminbackend') }}/css/starlight.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <link rel="stylesheet" href="{{ asset('backend/adminbackend/css/starlight.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
   </head>
 
   <body>
@@ -47,7 +49,7 @@
 
       <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white">
         <div class="signin-logo tx-center tx-24 tx-bold tx-inverse">Login <span class="tx-info tx-normal"></span></div>
-        <div class="tx-center mg-b-60">Professional Admin Template Design</div>
+        <div class="tx-center mg-b-60">Get Login To Our Website</div>
 
         <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
             @csrf
@@ -76,6 +78,8 @@
               <p><a class="text-blue" href="{{ route('password.request') }}">Forgot Your Password?</a></p>
             </div>
             <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
+            <button type="submit" class="btn btn-secondary btn-block"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login With Facebook</button>
+            <button type="submit" class="btn btn-danger btn-block"><i class="fa fa-google" aria-hidden="true"></i> Login With Gmail</button>
             <p>Don't have an account yet ?
               <a class="text-blue" href="{{ route('register') }}">Sign Up</a>
             </p>

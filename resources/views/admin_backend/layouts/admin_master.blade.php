@@ -24,5 +24,8 @@
     <!-- ########## END: MAIN PANEL ########## -->
 
     @include('admin_backend.includes.scripts')
+
+    @yield('scripts')
+
   </body>
 </html>
