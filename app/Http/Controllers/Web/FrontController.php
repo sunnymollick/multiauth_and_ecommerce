@@ -15,8 +15,14 @@ class FrontController extends Controller{
     public function index(){
         $categories = Category::all();
         $featured = Product::where('status',1)->latest()->limit(12)->get();
-        $trend = Product::where('status',1)->where('trend',1)->latest()->limit(8)->get();
-        $best_rated = Product::where('status',1)->where('best_rated',1)->latest()->limit(8)->get();
+        $trend = Product::join('categories','products.category_id','categories.id')
+                                ->select('products.*','categories.category_name')
+                                        ->where('status',1)->where('trend',1)->latest()->limit(8)->get();
+
+        $best_rated = Product::join('categories','products.category_id','categories.id')
+                                ->select('products.*','categories.category_name')
+                                    ->where('status',1)->where('best_rated',1)->latest()->limit(10)->get();
+
         $hot_deal = Product::join('brands','products.brand_id','brands.id')
                                 ->select('products.*','brands.brand_name')
                                     ->where('products.status',1)

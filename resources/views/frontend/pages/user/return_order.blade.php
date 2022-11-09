@@ -114,7 +114,7 @@
                 </div>
               </div>
 
-             
+
               <div class="row gutters-sm">
                 <div class="col-md-12">
                   <div class="card">
@@ -170,7 +170,7 @@
                                             @elseif ($row->return_order == 2)
                                                 <span class="badge badge-success">Success</span>
                                             @endif
-                                            
+
                                         </td>
                                     </tr>
                                   @endforeach

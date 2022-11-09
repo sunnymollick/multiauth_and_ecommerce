@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Auth;
+// use Auth;
 use App\Models\User;
+use App\Models\Web\Order;
+use App\Models\Web\OrderDetails;
+use App\Models\Web\Shipping;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class MainUserController extends Controller{
     public function Logout(){
@@ -38,6 +42,25 @@ class MainUserController extends Controller{
         $user = User::find(Auth::user()->id);
         return view('frontend.pages.user.edit_profile',['user'=>$user]);
     }
+
+    // public function viewOrder($id){
+
+    //     $order = Order::join('users','orders.user_id','users.id')
+    //                         ->select('orders.*','users.name')
+    //                         ->where('orders.id',$id)->first();
+
+
+    //     $shipping = Shipping::where('order_id',$id)->first();
+
+
+
+    //     $orderDetails = OrderDetails::join('products','order_details.product_id','products.id')
+    //                                     ->select('order_details.*','products.product_code','products.image_one')
+    //                                     ->where('order_details.order_id',$id)
+    //                                     ->get();
+
+    //     return view('admin_backend.pages.order.view_order',['order'=>$order,'shipping'=>$shipping,'orderDetails'=>$orderDetails]);
+    // }
 
     public function userProfileUpdate(Request $request){
         $validated = $request->validate([

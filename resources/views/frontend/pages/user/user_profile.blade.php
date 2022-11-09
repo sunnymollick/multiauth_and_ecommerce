@@ -122,14 +122,14 @@
                   <div class="card">
                     <div class="card-body">
                         <div class="table-wrapper">
-                            <table id="datatable1" class="table display responsive nowrap table-striped">
+                            <table id="myTable" class="table display responsive nowrap table-striped">
                               <thead class="table-info">
                                 <tr>
                                   <th class="wd-15p">No.</th>
                                   <th class="wd-15p">Payment Type</th>
                                   <th class="wd-15p">Amount</th>
                                   <th class="wd-15p">Date</th>
-                                  <th class="wd-15p">Status</th>
+                                  {{-- <th class="wd-15p">Status</th> --}}
                                   <th class="wd-15p">Status Code</th>
                                   <th class="wd-20p">Action</th>
                                 </tr>
@@ -142,7 +142,7 @@
                                         <td>{{ $row->payment_type }}</td>
                                         <td>{{ $row->total }} Tk</td>
                                         <td>{{ $row->date }}</td>
-                                        <td>
+                                        {{-- <td>
                                         @if ($row->status == 0)
                                             <span class="badge badge-warning">Pending</span>
                                         @elseif ($row->status == 1)
@@ -154,7 +154,7 @@
                                         @else
                                             <span class="badge badge-danger">Cancel</span>
                                         @endif
-                                        </td>
+                                        </td> --}}
                                         <td>{{ $row->status_code }}</td>
                                         <td>
                                             <a href="{{ route('view.order',$row->id) }}" class="btn btn-sm btn-primary" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -163,6 +163,7 @@
                                   @endforeach
                               </tbody>
                             </table>
+                            {{-- {{ $order->links() }} --}}
                           </div><!-- table-wrapper -->
                     </div>
                   </div>
@@ -173,6 +174,7 @@
           </div>
         </div>
     </div>
+
 
 {{-- <style>
         body{
@@ -229,5 +231,10 @@
     box-shadow: none!important;
 }
     </style> --}}
+
+@endsection
+@section('screipts')
+<link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 @endsection

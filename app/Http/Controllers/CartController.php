@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Product;
 use App\Models\Admin\Coupon;
 use App\Models\Web\Wishlist;
-use Cart;
-use Response;
-use Auth;
-use Session;
+// use Cart;
+// use Response;
+// use Auth;
+// use Session;
+use Gloudemans\Shoppingcart\Facades\Cart;
+// use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
 
 class CartController extends Controller{
     public function addToCart($id){
@@ -26,7 +31,7 @@ class CartController extends Controller{
             $data['options']['color'] = '';
             $data['options']['size'] = '';
             Cart::add($data);
-            return \Response::json(['success' => 'Successfully Added On Your Cart']);
+            return Response::json(['success' => 'Successfully Added On Your Cart']);
         }else {
             $data['id'] = $product->id;
             $data['name'] = $product->product_name;
@@ -37,7 +42,7 @@ class CartController extends Controller{
             $data['options']['color'] = '';
             $data['options']['size'] = '';
             Cart::add($data);
-            return \Response::json(['success' => 'Successfully Added On Your Cart']);
+            return Response::json(['success' => 'Successfully Added On Your Cart']);
         }
     }
 
@@ -130,6 +135,8 @@ class CartController extends Controller{
             return redirect()->back()->with($notification);
         }
     }
+
+
 
     public function checkout(){
         if (Auth::check()) {

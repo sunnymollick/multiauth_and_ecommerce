@@ -66,6 +66,7 @@ Route::post('update/user/profile',[MainUserController::class,'userProfileUpdate'
 Route::get('change/user/password',[MainUserController::class,'userPasswordChange'])->name('user.password.change');
 Route::post('update/user/password',[MainUserController::class,'updateUserPassword'])->name('update.user.password');
 
+// Route::get('admin/view/order/{id}',[MainUserController::class,'viewOrder'])->name('view.order');
 // Admin Routes Go Here
 
 Route::get('admin/logout',[AdminController::class,'destroy'])->name('admin.logout');
@@ -108,7 +109,9 @@ Route::post('update/coupon/{id}',[CouponController::class,'couponUpdate'])->name
 // Newsletter Routes Go Here
 Route::get('admin/newsletter',[NewsletterController::class,'newsletter'])->name('admin.newsletter');
 Route::get('delete/subscriber/{id}',[NewsletterController::class,'subscriberDelete'])->name('delete.subscriber');
+Route::delete('delete/all/newsletter',[NewsletterController::class,'deleteAllNewsletter'])->name('delete.all.newsletter');
 Route::post('store/newsletter',[FrontController::class,'storeNewsletter'])->name('store.newsletter');
+
 
 
 // Product Routes Go Here
@@ -161,6 +164,7 @@ Route::get('remove/coupon',[CartController::class,'couponRemove'])->name('coupon
 Route::get('payment/step',[PaymentController::class,'payment'])->name('payment.step');
 Route::post('user/payment/process',[PaymentController::class,'paymentProcess'])->name('payment.process');
 Route::post('user/stripe/charge',[PaymentController::class,'stripeCharge'])->name('stripe.charge');
+Route::post('cash/on/delivery',[PaymentController::class,'cashOnDelivery'])->name('cash.on.delivery');
 
 // Product Details Routes Go Here
 Route::get('product/details/{id}/{product_name}',[UserProductController::class,'productView'])->name('product.details');

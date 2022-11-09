@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
-
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 // Route::get('get-sub-category/{category_id}',[ProductController::class,'getSubcategory']);
+Route::post('insert/into/cart',[CartController::class,'insertCart']);
